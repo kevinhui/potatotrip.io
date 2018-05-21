@@ -1,0 +1,27 @@
+version: "2"
+
+services:
+  app:
+    image: golang:1.10-alpine3.7
+    container_name: potatotrip
+    volumes:
+     - .:/go/src/github.com/kevinhui/potatotrip.io
+    working_dir: /go/src/github.com/kevinhui/potatotrip.io
+    command: go run main.go
+    ports: 
+      - "3000:3000"
+    networks: 
+      - default
+    depends_on:
+      - mongo
+
+  mongo:
+    image: mongo:3.4
+    container_name: potatotrip-mongo
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo:/data/db
+
+volumes:
+  mongo:
