@@ -27,5 +27,5 @@ func StartServer() {
 }
 
 func welcomeHandler(rw http.ResponseWriter, r *http.Request) {
-	fmt.Fprint(rw, "Welcome to POC ctw")
+	fmt.Fprint(rw, "Welcome to PotatoTrip")
 }
