@@ -1,4 +1,4 @@
-package models
+package place
 
 import "github.com/globalsign/mgo/bson"
 
