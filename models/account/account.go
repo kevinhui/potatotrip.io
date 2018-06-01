@@ -17,9 +17,8 @@ var table = "account"
 
 func Get(selector bson.M) *Account {
 	m := &Account{}
-	sess := repo.GetSession()
-	defer sess.Close()
-	coll := sess.DB(db).C(table)
+	coll := repo.GetCollection(db, table)
+	defer coll.Close()
 	if err := coll.Find(selector).One(&m); err != nil {
 		return nil
 	}
